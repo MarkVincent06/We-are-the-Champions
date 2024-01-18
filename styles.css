@@ -1,0 +1,136 @@
+:root {
+  --black: #1b1924;
+  --white: #ffffff;
+  --lightgray: #444059;
+  --blue: #28a9f1;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--black);
+  font-family: "Inter", sans-serif;
+}
+
+/* Containers */
+.main-container {
+  max-width: 24.375rem;
+  margin: 30px auto 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 2.25rem;
+  align-items: center;
+  border: 1px solid red;
+}
+
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.from-to-container {
+  display: flex;
+  gap: 10px;
+}
+
+.endorsement-lists {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 0;
+}
+
+.endorsement-list {
+  background-color: var(--white);
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.endorsement-list > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.endorsement-list > div > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Images and Icons */
+.logo {
+  width: 5.625rem;
+  height: 5.625rem;
+}
+
+.endorsement-list-heart-icon {
+  font-size: 0.9rem;
+}
+
+/* Typography */
+.title,
+.endorsement-title-text {
+  font-family: "Josefin Sans", sans-serif;
+  color: var(--white);
+  text-align: center;
+}
+
+.endorsement-list-to,
+.endorsement-list-from,
+.endorsement-list-heart-count {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.endorsement-list-msg {
+  color: var(--black);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Inputs */
+textarea,
+input {
+  font-family: inherit;
+  background-color: var(--lightgray);
+  color: var(--black);
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 10px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: none;
+  height: 7.375rem;
+}
+
+input {
+  text-align: center;
+}
+
+/* Buttons */
+.publish-btn {
+  border: none;
+  border-radius: 0.5rem;
+  background: var(--blue);
+  font-family: "Josefin Sans";
+  font-size: 1.375rem;
+  font-weight: 700;
+  padding: 18px 0;
+  cursor: pointer;
+  transition: opacity 100ms ease-in-out;
+}
+
+/* Hovers, actives, focus */
+.publish-btn:hover {
+  opacity: 0.7;
+}

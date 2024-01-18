@@ -1,11 +1,87 @@
-<!doctype html>
-<html>
-    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-        <title>We are the Champions</title>
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
-        <h1>We are the Champions</h1>
-        <script src="index.js"></script>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+    <title>We are the Champions</title>
+  </head>
+  <body>
+    <main class="main-container">
+      <img
+        class="logo"
+        src="./assets/freddie.png"
+        alt="Person raising it's hand while holding the mike stand"
+      />
+      <h1 class="title">We are the Champions</h1>
+      <div class="inputs-container">
+        <textarea
+          name="endorsement-msg"
+          id="endorsement-msg"
+          placeholder="Write your endorsement here"
+        ></textarea>
+        <div class="from-to-container">
+          <input
+            type="text"
+            name="from-person"
+            id="from-person"
+            placeholder="From"
+          />
+          <input type="text" name="to-person" id="to-person" placeholder="To" />
+        </div>
+        <button class="publish-btn" id="publish-btn">Publish</button>
+      </div>
+      <h2 class="endorsement-title-text">- Endorsements -</h2>
+      <ul class="endorsement-lists">
+        <li class="endorsement-list">
+          <p class="endorsement-list-to">To Leanne</p>
+          <p class="endorsement-list-msg">
+            Leanne! Thank you so much for helping me with the March accounting.
+            Saved so much time because of you! 💜 Frode
+          </p>
+          <div>
+            <p class="endorsement-list-from">From Frode</p>
+            <div>
+              <i class="bi bi-heart endorsement-list-heart-icon"></i>
+              <!-- <i class="bi bi-suit-heart-fill endorsement-list-heart-icon"></i> -->
+              <p class="endorsement-list-heart-count">7</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="endorsement-list">
+          <p class="endorsement-list-to">To Leanne</p>
+          <p class="endorsement-list-msg">
+            Leanne! Thank you so much for helping me with the March accounting.
+            Saved so much time because of you! 💜 Frode
+          </p>
+          <div>
+            <p class="endorsement-list-from">From Frode</p>
+            <div>
+              <i class="bi bi-heart endorsement-list-heart-icon"></i>
+              <!-- <i class="bi bi-suit-heart-fill endorsement-list-heart-icon"></i> -->
+              <p class="endorsement-list-heart-count">7</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </main>
+    <script src="./script.js" type="module"></script>
+  </body>
 </html>
