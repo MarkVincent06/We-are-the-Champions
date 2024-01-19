@@ -20,6 +20,10 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+
     <title>We are the Champions</title>
   </head>
   <body>
@@ -48,39 +52,7 @@
         <button class="publish-btn" id="publish-btn">Publish</button>
       </div>
       <h2 class="endorsement-title-text">- Endorsements -</h2>
-      <ul class="endorsement-lists">
-        <li class="endorsement-list">
-          <p class="endorsement-list-to">To Leanne</p>
-          <p class="endorsement-list-msg">
-            Leanne! Thank you so much for helping me with the March accounting.
-            Saved so much time because of you! 💜 Frode
-          </p>
-          <div>
-            <p class="endorsement-list-from">From Frode</p>
-            <div>
-              <i class="bi bi-heart endorsement-list-heart-icon"></i>
-              <!-- <i class="bi bi-suit-heart-fill endorsement-list-heart-icon"></i> -->
-              <p class="endorsement-list-heart-count">7</p>
-            </div>
-          </div>
-        </li>
-
-        <li class="endorsement-list">
-          <p class="endorsement-list-to">To Leanne</p>
-          <p class="endorsement-list-msg">
-            Leanne! Thank you so much for helping me with the March accounting.
-            Saved so much time because of you! 💜 Frode
-          </p>
-          <div>
-            <p class="endorsement-list-from">From Frode</p>
-            <div>
-              <i class="bi bi-heart endorsement-list-heart-icon"></i>
-              <!-- <i class="bi bi-suit-heart-fill endorsement-list-heart-icon"></i> -->
-              <p class="endorsement-list-heart-count">7</p>
-            </div>
-          </div>
-        </li>
-      </ul>
+      <ul class="endorsement-lists" id="endorsement-lists"></ul>
     </main>
     <script src="./script.js" type="module"></script>
   </body>

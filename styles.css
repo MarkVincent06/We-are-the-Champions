@@ -21,7 +21,6 @@ body {
   flex-direction: column;
   padding: 0 2.25rem;
   align-items: center;
-  border: 1px solid red;
 }
 
 .inputs-container {
@@ -39,14 +38,15 @@ body {
   list-style-type: none;
   padding: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 15px;
-  margin-top: 0;
+  margin: 0 0 30px;
 }
 
 .endorsement-list {
   background-color: var(--white);
   padding: 0 20px;
+  width: 20rem;
   display: flex;
   flex-direction: column;
 }
@@ -70,6 +70,7 @@ body {
 
 .endorsement-list-heart-icon {
   font-size: 0.9rem;
+  cursor: pointer;
 }
 
 /* Typography */
@@ -77,6 +78,15 @@ body {
 .endorsement-title-text {
   font-family: "Josefin Sans", sans-serif;
   color: var(--white);
+  text-align: center;
+}
+
+.endorsement-title-text {
+  margin-top: 25px;
+}
+
+.empty-lists {
+  color: lightcoral;
   text-align: center;
 }
 
@@ -99,7 +109,7 @@ textarea,
 input {
   font-family: inherit;
   background-color: var(--lightgray);
-  color: var(--black);
+  color: var(--white);
   font-size: 1.1rem;
   border: none;
   border-radius: 0.5rem;
