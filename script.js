@@ -3,6 +3,7 @@ import {
   getDatabase,
   ref,
   push,
+  set,
   onValue,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
@@ -33,37 +34,56 @@ publishBtnEl.addEventListener("click", () => {
   ) {
     displaySweetAlert("warning", "Please fill in the empty fields.");
   } else {
-    const completeEndorsementMsg = {
+    const endorsementData = {
       fromPerson: fromPersonValue,
       toPerson: toPersonValue,
       endorsementMsg: endorsementMsgValue,
       heartCount: 0,
     };
 
-    push(getEndorsementLists, completeEndorsementMsg);
+    push(getEndorsementLists, endorsementData);
     displaySweetAlert("success", "Endorsement published successfully!");
 
     clearInputs();
   }
 });
 
+endorsementListsUlEl.addEventListener("click", (e) => {
+  const heartIconBtn = e.target.closest(".endorsement-list-heart-icon");
+
+  if (heartIconBtn) {
+    const heartIconBtnID = heartIconBtn.dataset.id;
+    const heartCountEl = heartIconBtn.nextElementSibling;
+    const heartCountRef = ref(
+      database,
+      `endorsementLists/${heartIconBtnID}/heartCount`
+    );
+
+    let currentHeartCount = parseInt(heartCountEl.textContent);
+    currentHeartCount++;
+
+    set(heartCountRef, currentHeartCount);
+  }
+});
+
 onValue(getEndorsementLists, (snapshot) => {
   if (snapshot.exists()) {
-    const endorsementListsArray = Object.values(snapshot.val());
+    let endorsementListsArray = Object.entries(snapshot.val());
     endorsementListsUlEl.innerHTML = "";
 
     let endorsementListsString = "";
-    for (let endorsementList of endorsementListsArray) {
+    for (let i = 0; i < endorsementListsArray.length; i++) {
+      let currentItemID = endorsementListsArray[i][0];
+      let currentItemValue = endorsementListsArray[i][1];
       endorsementListsString += `
          <li class="endorsement-list">
-            <p class="endorsement-list-to">To ${endorsementList.toPerson}</p>
-            <p class="endorsement-list-msg">${endorsementList.endorsementMsg}</p>
+            <p class="endorsement-list-to">To ${currentItemValue.toPerson}</p>
+            <p class="endorsement-list-msg">${currentItemValue.endorsementMsg}</p>
             <div>
-               <p class="endorsement-list-from">From ${endorsementList.fromPerson}</p>
+               <p class="endorsement-list-from">From ${currentItemValue.fromPerson}</p>
                <div>
-                  <i class="bi bi-heart endorsement-list-heart-icon"></i>
-                  <!-- <i class="bi bi-suit-heart-fill endorsement-list-heart-icon"></i> -->
-                  <p class="endorsement-list-heart-count">${endorsementList.heartCount}</p>
+                  <i class="bi-heart endorsement-list-heart-icon" data-id="${currentItemID}"></i>
+                  <p class="endorsement-list-heart-count">${currentItemValue.heartCount}</p>
                </div>
             </div>
          </li> 
@@ -94,7 +114,7 @@ function displaySweetAlert(iconType, titleMsg) {
     toast: true,
     position: "top-end",
     showConfirmButton: false,
-    timer: 2000,
+    timer: 3000,
     timerProgressBar: true,
     didOpen: (toast) => {
       toast.onmouseenter = Swal.stopTimer;
