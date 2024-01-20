@@ -46,7 +46,7 @@ body {
 .endorsement-list {
   background-color: var(--white);
   padding: 0 20px;
-  width: 20rem;
+  max-width: 20rem;
   display: flex;
   flex-direction: column;
 }
